@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مجتمع الفضاء</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/x-icon" href="a3e7eaaec0af8a39321f4f5eeb7c04b8.webp">
+  <style>
+    /* إعدادات عامة للصفحة */
+    body, html { 
+      height: 100%; 
+      margin: 0; 
+      padding: 0; 
+      font-family: "Andalus Regular";
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .light-mode { background-color: white; color: black; }
+    .dark-mode { background-color: black; color: white; }
+    /* خلفية الصورة */
+    .bgimg {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url("https://media.discordapp.net/attachments/1353380428786171954/1362126036598526183/hi.webp");
+      min-height: 70%;
+    }
+    /* إخفاء القوائم المؤقتة */
+    .menu { display: none; }
+    /* تأثير النص اللامع */
+    .shine {
+      font-size: 48px;
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      color: #fff;
+      text-shadow: 
+          0 0 10px rgba(255,255,255,0.8),
+          0 0 20px rgba(255,255,255,0.8),
+          0 0 30px rgba(255,255,255,0.8),
+          0 0 40px rgba(0,255,255,0.8),
+          0 0 70px rgba(0,255,255,0.8);
+    }
+    .shine::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(255, 255, 255, 0.2) 20%,
+          rgba(255, 255, 255, 0.8) 50%,
+          rgba(255, 255, 255, 0.2) 80%,
+          transparent 100%
+      );
+      animation: shineAnim 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    @keyframes shineAnim {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+  </style>
+</head>
+<body class="light-mode">
+  <!-- شريط التنقل -->
+  <div class="w3-top w3-hide-small">
+    <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
+      <nav>
+        <a href="#" class="w3-bar-item w3-button w3-hover-border-blue w3-hover-text-red">الرئيسية</a>
+        <a href="#menu" class="w3-bar-item w3-button w3-hover-border-blue w3-hover-text-blue">معلومات</a>
+        <a href="#about" class="w3-bar-item w3-button w3-hover-border-blue w3-hover-text-brown">حول</a>
+        <a href="https://discord.gg/Cc6uuyuCes" class="w3-bar-item w3-button w3-hover-border-blue w3-hover-text-light-blue">الخادم</a>
+        <a href="arabix.html" class="w3-bar-item w3-button w3-hover-border-blue w3-hover-text-light-blue">
+          ترجمة <i class="fa fa-language"></i>
+        </a>
+        <button id="toggle-button" style="padding:10px 20px; margin:20px; cursor:pointer;">
+          تغيير الخلفية
+        </button>
+      </nav>
+    </div>
+  </div>
+  <script>
+    const toggleButton = document.getElementById('toggle-button');
+    const bodyElement = document.body;
+    toggleButton.addEventListener('click', () => {
+      bodyElement.classList.toggle('dark-mode');
+      bodyElement.classList.toggle('light-mode');
+      toggleButton.textContent = bodyElement.classList.contains('dark-mode') ? 'تحويل للوضع الفاتح' : 'تحويل للوضع الداكن';
+    });
+  </script>
+  <!-- العنوان مع الخلفية -->
+  <header class="bgimg w3-display-container w3-grayscale-min" id="home">
+    <div class="w3-display-bottomleft w3-padding">
+      <span class="w3-tag w3-xlarge">
+        مجتمع الفضاء <i class="fa-brands fa-discord"></i>
+      </span>
+    </div>
+    <div class="w3-display-middle w3-center">
+      <span class="w3-text-white w3-hide-small" style="font-size:100px">
+        مرحبًا بكم
+      </span>
+      <span class="w3-text-white w3-hide-large w3-hide-medium" style="font-size:60px">
+        <b>=> فضاء معنا!</b>
+      </span>
+      <p>
+        <a href="#menu" class="w3-button w3-xxlarge w3-black">
+          من نحن؟ <i class="fa-duotone fa-solid fa-user-group fa-xs"></i>
+        </a>
+      </p>
+    </div>
+  </header>
+  <!-- قائمة المعلومات -->
+  <div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
+    <div class="w3-content">
+      <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">معلومات</h1>
+      <div class="w3-row w3-center w3-border w3-border-dark-grey">
+        <a href="javascript:void(0)" onclick="openMenu(event, 'Gols');">
+          <div class="w3-col s4 tablink w3-padding-large w3-hover-red">
+            أهدافنا 2025 <i class="fa-solid fa-location-crosshairs"></i>
+          </div>
+        </a>
+        <a href="javascript:void(0)" onclick="openMenu(event, 'Accounts');">
+          <div class="w3-col s4 tablink w3-padding-large w3-hover-red">
+            الحسابات <i class="fa-solid fa-users-line"></i>
+          </div>
+        </a>
+        <a href="javascript:void(0)" onclick="openMenu(event, 'Donation');">
+          <div class="w3-col s4 tablink w3-padding-large w3-hover-red">
+            دعم غزة <i class="fa-solid fa-land-mine-on"></i>
+          </div>
+        </a>
+      </div>
+      <!-- قسم أهداف الخادم -->
+      <div id="Gols" class="w3-container menu w3-padding-32 w3-white">
+        <h1>
+          <b>أعضاء الخادم</b> 
+          <span class="w3-right w3-tag w3-dark-grey w3-round">1</span>
+        </h1>
+        <hr>
+        <h1>
+          <b>مستوى التعزيز</b> 
+          <span class="w3-right w3-tag w3-dark-grey w3-round">2</span>
+        </h1>
+        <p class="w3-text-grey">الوصول إلى مستوى التعزيز الثاني.</p>
+        <hr>
+        <h1>
+          <b>مجتمع ضخم</b> 
+          <span class="w3-right w3-tag w3-dark-grey w3-round">3</span>
+        </h1>
+        <div class="moving-text-container" style="width:100%; height:100px; display:flex; justify-content:center; align-items:center; overflow:hidden;">
+          <div class="moving-text" style="font-size:2.5rem; position: relative; animation: moveAndShine 3s infinite; background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.8) 50%, transparent 100%); background-size:200% 100%; -webkit-background-clip:text; background-clip:text; color:transparent;">
+            حقوق النشر ©
+          </div>
+        </div>
+        <p>ضع مؤشر الماوس على النص لإيقاف الحركة واستئنافها عند إزالته.</p>
+        <hr>
+        <h1>
+          <b>شارة الشراكة</b> 
+          <span class="w3-right w3-tag w3-dark-grey w3-round">4</span>
+        </h1>
+        <p class="w3-text-blue">شراكة مع ديسكورد</p>
+        <hr>
+        <h1>
+          <b>استمع جيدًا</b> 
+          <span class="w3-tag w3-red w3-round">أهم شيء</span> 
+          <span class="w3-right w3-tag w3-dark-grey w3-round">5</span>
+        </h1>
+        <p class="w3-text-grey">لا يهم حجم مشروعنا بقدر حجم لحظاتنا.</p>
+        <hr>
+        <h1>
+          <b>المحدث</b> 
+          <span class="w3-tag w3-grey w3-round">تحديث</span> 
+          <span class="w3-right w3-tag w3-dark-grey w3-round">الائتمان</span>
+        </h1>
+        <p class="w3-text-grey">
+          المالكون: xman, ahmed, 𝐬𝐜!Medic! و !senior 𝒶𝓊𝓇𝒶
+        </p>
+      </div>
+      <!-- قسم الحسابات -->
+      <div id="Accounts" class="w3-container menu w3-padding-32 w3-white">
+        <h1>
+          <b>جميع الحسابات</b> 
+          <span class="w3-right w3-tag w3-dark-grey w3-round">xman</span>
+        </h1>
+        <p class="w3-text-grey">
+          <img src="ahmed1.webp" alt="صورة أحمد"> - مطور ومالك حقيقي لمجتمع الفضاء.
+        </p>
+        <hr>
+        <div class="social-icons" style="display:flex; gap:20px;">
+          <a href="#" class="social-icon facebook" style="background:#3B5998; width:50px; height:50px; display:flex; align-items:center; justify-content:center; border-radius:50%; color:white;">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="social-icon twitter" style="background:#1DA1F2; width:50px; height:50px; display:flex; align-items:center; justify-content:center; border-radius:50%; color:white;">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-icon instagram" style="background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); width:50px; height:50px; display:flex; align-items:center; justify-content:center; border-radius:50%; color:white;">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+      <!-- قسم التبرع -->
+      <div id="Donation" class="w3-container menu w3-padding-32 w3-white">
+        <h1>
+          <b>تبرع</b> 
+          <span class="w3-tag w3-dark-grey w3-round">$1+</span>
+        </h1>
+        <p>
+          <button style="padding:10px 20px;">
+            <a href="https://www.hayakarima.com/donation/gaza" target="_blank" style="text-decoration:none; color:inherit;">ساعد غزة</a>
+          </button>
+        </p>
+        <hr>
+        <h1>
+          <b>تبرعات مجانية</b> 
+          <span class="w3-right w3-tag w3-dark-grey w3-round">$مجاني</span>
+        </h1><div class="text-effect">النص المراد تنسيقه</div>
+        <p>
+          <button style="padding:10px 20px;">
+            <a href="https://arab.org/ar/%D8%A7%D9%84%D8%AA%D8%A8%D8%B1%D8%B9-%D8%A7%D9%84%D9%85%D8%AC%D8%A7%D9%86%D9%8A/%D9%81%D9%84%D8%B3%D8%B7%D9%8A%D9%86/" target="_blank" style="text-decoration:none; color:inherit;">ساعد غزة</a>
+          </button>
+        </p>
+        <hr>
+        <h1><b>كل شيء لغزة</b></h1>
+        <p>
+          <button style="padding:10px 20px;">
+            <a href="https://www.healpalestine.org/donate/#global_heal_donation" target="_blank" style="text-decoration:none; color:inherit;">ساعد غزة</a>
+          </button>
+        </p>
+        <hr>
+        <h1><b>SaveGaza</b></h1>
+        <p>
+          <button style="padding:10px 20px;">
+            <a href="https://shefaorman.org/Projects/DreamDetails/SaveGaza" target="_blank" style="text-decoration:none; color:inherit;">ساعد غزة</a>
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- قسم حول -->
+  <div id="about" class="w3-container w3-padding-64 w3-xlarge">
+    <h1 class="w3-center w3-jumbo">
+      <img src="42695557667.png" alt="شعار">
+    </h1>
+    <h2 class="w3-center">
+      🌟 خادم عربي يرحب بالجميع، مليء بالمرح والدردشة والميمز.<br>
+      🎁 جوائز وهدايا على مدار 24 ساعة!<br>
+      🤖 روبوتات ذكية لحل المشكلات وتنظيم الفعاليات.<br>
+      🗨️ انضم وشارك في مجتمعنا النشط!
+    </h2>
+    <div class="social-icons" style="display:flex; justify-content:center; gap:20px; margin:20px 0;">
+      <a href="#" class="social-icon facebook" style="background:#3B5998; width:50px; height:50px; display:flex; align-items:center; justify-content:center; border-radius:50%; color:white;">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="#" class="social-icon twitter" style="background:#1DA1F2; width:50px; height:50px; display:flex; align-items:center; justify-content:center; border-radius:50%; color:white;">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#" class="social-icon instagram" style="background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); width:50px; height:50px; display:flex; align-items:center; justify-content:center; border-radius:50%; color:white;">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+  </div>
+  <!-- قائمة الأسئلة -->
+  <div class="dropdown-container" style="margin:20px; text-align:center;">
+    <select id="userSelection" onchange="showAnswer()" style="padding:10px; font-size:16px; border-radius:5px; margin-bottom:10px; width:250px; background-color:#333; color:white;">
+      <option value="">اختر سؤالاً...</option>
+      <option value="q1">ما هو هدف المجتمع؟</option>
+      <option value="q2">كم عدد الأعضاء المستهدف؟</option>
+      <option value="q3">ما هي ميزات الخادم؟</option>
+    </select>
+    <div id="answerDisplay" class="answer-box" style="padding:15px; margin-top:10px; border-radius:5px; background-color:rgba(255,255,255,0.1); color:white; min-height:50px;"></div>
+  </div>
+  <script>
+    function openMenu(evt, menuName) {
+      var i, x, tablinks;
+      x = document.getElementsByClassName("menu");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" w3-blue", " w3-red");
+      }
+      document.getElementById(menuName).style.display = "block";
+      evt.currentTarget.firstElementChild.className += " w3-blue";
+    }
+    // تفعيل تب واحد بشكل افتراضي عند تحميل الصفحة
+    document.addEventListener('DOMContentLoaded', function(){
+      document.querySelector(".tablink").click();
+    });
+    function showAnswer() {
+      const selection = document.getElementById('userSelection').value;
+      const answerBox = document.getElementById('answerDisplay');
+      const answers = {
+        'q1': 'خادم عربي يرحب بالجميع، مليء بالمرح والدردشة.',
+        'q2': 'استهداف 100 عضو في البداية.',
+        'q3': 'روبوتات ذكية، فعاليات، وهدايا على مدار الساعة.'
+      };
+      answerBox.textContent = answers[selection] || 'الرجاء اختيار سؤال';
+    } 
+  </script>
+  <footer class="w3-center w3-padding-32">
+    <div class="shine">
+      حقوق النشر ©
+    </div>
+  </footer>
+</body>
+</html>
